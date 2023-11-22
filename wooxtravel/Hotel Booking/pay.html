@@ -1,0 +1,160 @@
+<!-- pay.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #paymentForm {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #bookingDetails {
+      display: none;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      margin-top: 20px;
+    }
+
+    #billReceipt {
+      display: none;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="paymentForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required><br>
+
+    <label for="cardNumber">Card Number:</label>
+    <input type="text" id="cardNumber" required><br>
+
+    <label for="expiryDate">Expiry Date:</label>
+    <input type="text" id="expiryDate" required><br>
+
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" required><br>
+
+    <button type="button" onclick="proceedToOTP()">Proceed</button>
+  </form>
+
+  <div id="bookingDetails">
+    <h2>Booking Details</h2>
+    <p id="customerName"></p>
+    <p id="phoneNumber"></p>
+    <p id="selectedRoomName"></p>
+    <p id="totalPrice"></p>
+  </div>
+
+  <div id="billReceipt">
+    <h2>Bill Receipt</h2>
+    <p id="billCustomerName"></p>
+    <p id="billPhoneNumber"></p>
+    <p id="billSelectedRoomName"></p>
+    <p id="billTotalPrice"></p>
+    <p id="billStartDate"></p>
+    <p id="billEndDate"></p>
+  </div>
+
+  <script>
+    function proceedToOTP() {
+      alert('OTP sent to your number');
+      setTimeout(function () {
+        var otp = prompt('Enter OTP:');
+        if (otp) {
+          showBookingDetails(otp);
+        }
+      }, 2000);
+    }
+
+    function showBookingDetails(otp) {
+      var customerName = document.getElementById('name').value;
+      var selectedRoomName = localStorage.getItem('selectedRoomName');
+      var selectedRoomPrice = localStorage.getItem('selectedRoomPrice');
+      var phoneNumber = prompt('Enter your phone number:');
+      var days = prompt('Enter the number of days:');
+      var startDate = prompt('Enter the start date:');
+      var endDate = prompt('Enter the end date:');
+
+      // Calculate total price
+      var totalPrice = days * selectedRoomPrice;
+
+      // Display booking details
+      document.getElementById('customerName').innerText = 'Name: ' + customerName;
+      document.getElementById('phoneNumber').innerText = 'Phone Number: ' + phoneNumber;
+      document.getElementById('selectedRoomName').innerText = 'Room: ' + selectedRoomName;
+      document.getElementById('totalPrice').innerText = 'Total Price: $' + totalPrice;
+
+      // Display booking details container
+      document.getElementById('bookingDetails').style.display = 'block';
+
+      // Additional logic for further processing (e.g., sending data to a server)
+
+      // Display bill receipt
+      document.getElementById('billCustomerName').innerText = 'Name: ' + customerName;
+      document.getElementById('billPhoneNumber').innerText = 'Phone Number: ' + phoneNumber;
+      document.getElementById('billSelectedRoomName').innerText = 'Room: ' + selectedRoomName;
+      document.getElementById('billTotalPrice').innerText = 'Total Price: $' + totalPrice;
+      document.getElementById('billStartDate').innerText = 'Start Date: ' + startDate;
+      document.getElementById('billEndDate').innerText = 'End Date: ' + endDate;
+
+      // Display bill receipt container
+      document.getElementById('billReceipt').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

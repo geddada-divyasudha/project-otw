@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRS Destinations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    #main-page, #destination-page, .table-page {
+      display: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #main-page {
+      display: block;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .fade-out {
+      animation: fadeOut 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Page -->
+  <div id="main-page">
+    <h1>Welcome to DRS Destinations</h1>
+    <button onclick="showDestinations()">DRS Destinations</button>
+  </div>
+
+  <!-- Destination Page -->
+  <div id="destination-page" class="fade-out">
+    <h1>Choose a Destination</h1>
+    <button onclick="showTable('Destination 1')">Destination 1</button>
+    <button onclick="showTable('Destination 2')">Destination 2</button>
+    <button onclick="showTable('Destination 3')">Destination 3</button>
+    <button onclick="showTable('Destination 4')">Destination 4</button>
+    <button onclick="showTable('Destination 5')">Destination 5</button>
+    <button onclick="backToMain()">Back to Main Page</button>
+  </div>
+
+  <!-- Table Pages -->
+  <div id="table-page-1" class="table-page fade-out">
+    <h1>Table for Destination 1</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Rating</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>4.5</td>
+          <td>Hotel A</td>
+          <td>$150</td>
+        </tr>
+        <tr>
+          <td>3.8</td>
+          <td>Resort B</td>
+          <td>$200</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+    <button onclick="backToDestinations()">Back to Destinations</button>
+  </div>
+
+  <div id="table-page-2" class="table-page fade-out">
+    <h1>Table for Destination 2</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Rating</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Add rows for Destination 2 -->
+      </tbody>
+    </table>
+    <button onclick="backToDestinations()">Back to Destinations</button>
+  </div>
+
+  <div id="table-page-3" class="table-page fade-out">
+    <h1>Table for Destination 3</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Rating</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Add rows for Destination 3 -->
+      </tbody>
+    </table>
+    <button onclick="backToDestinations()">Back to Destinations</button>
+  </div>
+
+  <div id="table-page-4" class="table-page fade-out">
+    <h1>Table for Destination 4</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Rating</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Add rows for Destination 4 -->
+      </tbody>
+    </table>
+    <button onclick="backToDestinations()">Back to Destinations</button>
+  </div>
+
+  <div id="table-page-5" class="table-page fade-out">
+    <h1>Table for Destination 5</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Rating</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Add rows for Destination 5 -->
+      </tbody>
+    </table>
+    <button onclick="backToDestinations()">Back to Destinations</button>
+  </div>
+
+  <script>
+    function showDestinations() {
+      document.getElementById('main-page').classList.add('fade-out');
+      document.getElementById('destination-page').classList.remove('fade-out');
+      document.getElementById('destination-page').classList.add('fade-in');
+    }
+
+    function showTable(destination) {
+      // Logic to dynamically populate the table based on the destination clicked
+      let tablePageId = 'table-page-' + destination.replace(/\s+/g, '-').toLowerCase();
+      document.getElementById('destination-page').classList.add('fade-out');
+      document.getElementById(tablePageId).classList.remove('fade-out');
+      document.getElementById(tablePageId).classList.add('fade-in');
+    }
+
+    function backToMain() {
+      document.getElementById('main-page').classList.remove('fade-out');
+      document.getElementById('destination-page').classList.remove('fade-in');
+      document.getElementById('destination-page').classList.add('fade-out');
+    }
+
+    function backToDestinations() {
+      document.getElementById('destination-page').classList.remove('fade-out');
+      document.getElementById('destination-page').classList.add('fade-in');
+      document.querySelectorAll('.table-page').forEach(function(element) {
+        element.classList.remove('fade-in');
+        element.classList.add('fade-out');
+      });
+    }
+  </script>
+
+</body>
+</html>

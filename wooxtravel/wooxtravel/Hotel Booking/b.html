@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Selection</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .room-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .room-card {
+      width: 300px;
+      margin: 20px;
+      background-color: #fff;
+      border: 1px solid #e1e1e1;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .room-card:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .room-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .room-details {
+      padding: 20px;
+    }
+
+    .room-card h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .room-card p {
+      margin: 0;
+      color: #666;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px;
+    }
+
+    .button-container button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .button-container button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>DRS RESIDENCE</h1>
+
+  <div class="room-container">
+    <section id="deluxe" class="room-card">
+      <img src="https://storage.mosaic-collection.com/property/loeipalace/hotel-photos/accommodation/deluxe/deluxe_king-2.jpg" alt="Deluxe Room Image">
+      <div class="room-details">
+        <h2>Deluxe Room</h2>
+        <p>Rating: 5 stars</p>
+        <br>
+        <p>Price: $100 per day</p>
+      </div>
+      <div class="button-container">
+        <button onclick="bookRoom('Deluxe Room', 100)">Book Now</button>
+      </div>
+    </section>
+
+    <!-- Add more rooms with images -->
+    <section id="standard" class="room-card">
+      <img src="data:image/jpeg;base64,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" alt="Standard Room Image">
+      <div class="room-details">
+        <h2>Standard Room</h2>
+        <p>Rating: 3 stars</p>
+        <br>
+        <p>Price: $50 per day</p>
+      </div>
+      <div class="button-container">
+        <button onclick="bookRoom('Standard Room', 50)">Book Now</button>
+      </div>
+    </section>
+
+    <section id="suite" class="room-card">
+      <img src="https://c4.wallpaperflare.com/wallpaper/700/373/186/sofa-design-yellow-curtains-wallpaper-preview.jpg" alt="Suite Room Image">
+      <div class="room-details">
+        <h2>Suite Room</h2>
+        <p>Rating: 4 stars</p>
+        <br>
+        <p>Price: $80 per day</p>
+      </div>
+      <div class="button-container">
+        <button onclick="bookRoom('Suite Room', 80)">Book Now</button>
+      </div>
+    </section>
+    <!-- Add more rooms with images as needed -->
+  </div>
+
+  <script>
+    function bookRoom(roomName, price) {
+      localStorage.setItem('selectedRoomName', roomName);
+      localStorage.setItem('selectedRoomPrice', price);
+      window.location.href = 'pay.html';
+    }
+  </script>
+</body>
+</html>

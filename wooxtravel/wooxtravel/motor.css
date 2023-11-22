@@ -1,0 +1,117 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header, nav, footer {
+    padding: 20px;
+    background-color:bisque;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+}
+
+#food {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    width: 200px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+.item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.cart-overlay, .payment-overlay, .bill-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.cart-overlay .cart-modal, .payment-overlay .payment-modal, .bill-overlay .bill-modal {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.cart-overlay h2, .payment-overlay h2, .bill-overlay h2 {
+    margin-bottom: 10px;
+}
+
+#cart-table {
+    width: 100%;
+}
+
+#cart-table th, #cart-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+#proceed-to-pay, #qr-scan, #card-payment, #bill-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#bill-form label, #bill-form input {
+    margin-bottom: 10px;
+}
+
+.bill-modal h3 {
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: #ccc;
+    font-size: 14px;
+    padding: 10px 0;
+}

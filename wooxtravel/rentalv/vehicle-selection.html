@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Selection</title>
+</head>
+<body>
+    <h1>Choose a Vehicle</h1>
+
+    <button onclick="selectVehicle('2wheelers')">2 Wheelers</button>
+    <button onclick="selectVehicle('3wheelers')">3 Wheelers</button>
+    <button onclick="selectVehicle('4ac')">4 Wheelers AC</button>
+    <button onclick="selectVehicle('4nonac')">4 Wheelers Non-AC</button>
+
+    <script>
+        function selectVehicle(vehicleType) {
+            // Redirect to rent.html with the selected vehicle type
+            window.location.href = `rent.html?type=${vehicleType}`;
+        }
+    </script>
+</body>
+</html>

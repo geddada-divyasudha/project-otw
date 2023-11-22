@@ -1,0 +1,50 @@
+<!-- qrscan.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="qrscan.css">
+    <title>QR Scan</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center">QR Scan Payment</h1>
+
+        <div id="qrOptions">
+            <label for="scanOption">Select Option:</label>
+            <select id="scanOption">
+                <option value="scanner">Scanner</option>
+                <option value="upi">UPI ID</option>
+            </select>
+
+            <div id="scannerOption" class="qr-option">
+                <button onclick="scanToPay()">Proceed to Pay</button>
+            </div>
+
+            <div id="upiOption" class="qr-option" style="display: none;">
+                <label for="upiId">Enter UPI ID:</label>
+                <input type="text" id="upiId" placeholder="example@ybl">
+                <button onclick="upiPayment()">Proceed to Pay</button>
+            </div>
+
+            <div id="paymentDetails" style="display: none;">
+                <p>Total Amount: $<span id="totalAmount"></span></p>
+                <button onclick="confirmPayment()">Proceed to Pay</button>
+            </div>
+
+            <img src="phonepe.png" alt="PhonePe" id="phonepeLogo" style="display: none;">
+
+            <div id="paymentResult" style="display: none;">
+                <img src="success.png" alt="Payment Successful">
+                <p>Payment Successful!</p>
+                <button onclick="returnToOrder()">Return to Food Order</button>
+                <button onclick="generateBill()">Generate Bill</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="qrscan.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>4 Wheelers</title>
+    <style>
+                body{background-image: url("https://img.freepik.com/free-vector/white-technology-background_23-2148403782.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699747200&semt=ais");}
+
+        .center {
+            text-align: center;
+        }
+
+        .vehicle {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .vehicle img {
+            width: 200px;
+            margin-right: 20px;
+            height: 150px;
+        }
+
+        .vehicle-info {
+            text-align: left;
+        }
+
+        .payment-form {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <h1>4 Wheelers NON AC</h1>
+
+        <!-- Bike -->
+        <div class="vehicle" onclick="rentVehicle('Datson go')">
+            <img src="https://imgd.aeplcdn.com/1920x1080/cw/ec/36449/Datsun-Go-Exterior-138944.jpg?wm=0&q=80&q=80" alt="Non-AC Car">
+            <div class="vehicle-info">
+                <h2>Datson go</h2>
+                <p>Rent:₹1600/day</p>
+                <p>Features: KTM is known for its off-road motorcycles.</p>
+                <button>Rent</button>
+            </div>
+        </div>
+
+        <!-- Scooter -->
+        <div class="vehicle" onclick="rentVehicle('Hyundai Santro')">
+            <img src="https://imgd-ct.aeplcdn.com/1280x720/n/cw/ec/32940/santro-exterior-right-front-three-quarter-138782.jpeg?q=80" alt="Non-AC Car">
+            <div class="vehicle-info">
+                <h2>Hyundai Santro</h2>
+                <p>Rent: ₹1500/day</p>
+                <p>Features: Ninja offers high strength and high durability.</p>
+                <button>Rent</button>
+            </div>
+        </div>
+
+        <!-- Motorcycle -->
+        <div class="vehicle" onclick="rentVehicle('Maruti Suzuki Eeco')">
+            <img src="https://cdni.autocarindia.com/utils/imageresizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/EecoModelImage.jpg" alt="Non-AC Car">
+            <div class="vehicle-info">
+                <h2>Maruti Suzuki Eeco</h2>
+                <p>Rent: ₹1800/day</p>
+                <p>Features: It comes with a self-start switch as well as a manual kick.</p>
+                <button>Rent</button>
+            </div>
+        </div>
+
+        <!-- Electric Bike -->
+        <div class="vehicle" onclick="rentVehicle('Renault Kwid')">
+            <img src="https://imgd.aeplcdn.com/642x336/n/cw/ec/141125/kwid-exterior-right-front-three-quarter-3.jpeg?isig=0&q=80" alt="Non-AC Car">
+            <div class="vehicle-info">
+                <h2>Renault Kwid</h2>
+                <p>Rent: ₹1700/day</p>
+                <p>Features: smaller good balance in driving at a lower speed.</p>
+                <button>Rent</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="payment-form" class="center payment-form">
+        <h2>Payment Details</h2>
+        <div id="card-payment" style="display: none;">
+            <h3>Select Card Type:</h3>
+            <input type="radio" id="debitCard" name="cardType" value="debit">
+            <label for="debitCard">Debit Card</label>
+            <input type="radio" id="creditCard" name="cardType" value="credit">
+            <label for="creditCard">Credit Card</label>
+
+            <div id="card-details" style="display: none;">
+                <h3>Enter Card Details:</h3>
+                <label for="cardName">Cardholder Name:</label>
+                <input type="text" id="cardName" required>
+
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" required>
+
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" placeholder="MM/YYYY" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" required>
+
+                <button onclick="processCardPayment()">Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedVehicle;
+
+function rentVehicle(vehicleName) {
+    selectedVehicle = vehicleName;
+    // Prompt for customer details
+    const customerName = prompt("Enter your name:");
+    const phoneNumber = prompt("Enter your phone number:");
+    const rentalDaysInput = prompt("How many days do you want to rent the vehicle?");
+    const rentalDays = parseInt(rentalDaysInput, 10);
+
+    if (isNaN(rentalDays)) {
+        alert("Invalid input for rental days. Please enter a valid number.");
+        return;
+    }
+
+    const startDate = prompt("Enter start date:");
+    const endDate = prompt("Enter end date:");
+    const deliveryAddress = prompt("Enter delivery address:");
+
+    // Prompt for payment method
+    const paymentMethod = prompt("Select payment method:\n1. Cash on Delivery\n2. Card Payment\n3. QR Scan");
+
+    if (paymentMethod === "1") {
+        // Cash on Delivery
+        const message = `Hi ${customerName}, your ${vehicleName} will be delivered to ${deliveryAddress} on ${startDate}. We will pick up our vehicle on ${endDate} at 8 PM. Take a screenshot or print the bill for further payment.`;
+        alert(message);
+        generateBill(customerName, phoneNumber, rentalDays, startDate, endDate, selectedVehicle);
+    } else if (paymentMethod === "2") {
+        // Card Payment
+        const cardType = prompt("Select Card Type:\n1. Credit Card\n2. Debit Card");
+
+        if (cardType === "1" || cardType === "2") {
+            showPaymentForm();
+        } else {
+            alert("Invalid card type. Please try again.");
+        }
+    }
+}
+
+        function showPaymentForm() {
+            document.getElementById("payment-form").style.display = "block";
+            const cardType = document.querySelector('input[name="cardType"]:checked').value;
+            document.getElementById("card-details").style.display = "block";
+        }
+
+        function getCardDetails() {
+            const cardName = document.getElementById("cardName").value;
+            const cardNumber = document.getElementById("cardNumber").value;
+            const expiryDate = document.getElementById("expiryDate").value;
+            const cvv = document.getElementById("cvv").value;
+
+            return {
+                cardName,
+                cardNumber,
+                expiryDate,
+                cvv
+            };
+        }
+
+        function processCardPayment() {
+            const cardDetails = getCardDetails();
+            const customerName = prompt("Enter your name:");
+            const phoneNumber = prompt("Enter your phone number:");
+            const rentalDays = prompt("How many days do you want to rent the vehicle?");
+            const startDate = prompt("Enter start date:");
+            const endDate = prompt("Enter end date:");
+
+            alert(`OTP has been sent to your phone. Please wait for 2 seconds.`);
+
+            setTimeout(() => {
+                const enteredOTP = prompt("Enter the OTP received on your phone:");
+
+                if (enteredOTP) {
+                    alert("Payment is processing. Please wait for 2 seconds.");
+
+                    setTimeout(() => {
+                        alert("Payment successfully completed! Please print the bill for further verification.");
+                        generateBill(customerName, phoneNumber, rentalDays, startDate, endDate, selectedVehicle);
+                    }, 2000);
+                } else {
+                    alert("OTP verification failed. Payment not completed.");
+                }
+            }, 2000);
+        }
+
+        function generateBill(customerName, phoneNumber, rentalDays, startDate, endDate, vehicleName) {
+            const rent = getRent(vehicleName);
+            const totalRent = rentalDays * rent;
+
+            const billMessage = `Bill Details:\n\nCustomer Name: ${customerName}\nPhone Number: ${phoneNumber}\nRental Days: ${rentalDays}\nStart Date: ${startDate}\nEnd Date: ${endDate}\nVehicle: ${vehicleName}\nTotal Rent: $${totalRent}`;
+            alert(billMessage);
+        }
+
+        function getRent(vehicleName) {
+            switch (vehicleName) {
+                case "Datson go":
+                    return 1600;
+                case "Hyundai Santro":
+                    return 1500;
+                case "Maruti Suzuki Eeco":
+                    return 1800;
+                case "Renault Kwid":
+                    return 1700;
+                default:
+                    return 0;
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+ 

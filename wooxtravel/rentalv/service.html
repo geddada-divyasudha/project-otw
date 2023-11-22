@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>DRS Rental Service</title>
+	<style> body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+	background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHIWi09Bpdlzeyw5KLJWFnHrWtiZHL1YIftQHZaWEokoN-zX8Bgcn6ZTVLQMQX_rMqnN0&usqp=CAU');
+}
+
+.center-text {
+    text-align: center;
+    margin-top: 100px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+</style>
+</style>
+</head>
+<body>
+    <div class="center-text">
+        <h1>Welcome to DRS Rental Service</h1>
+        <button class="left-button" onclick="redirectTo2Wheelers()">2 Wheelers</button>
+        <button class="right-button" onclick="redirectTo3Wheelers()">3 Wheelers</button>
+        <button class="right-button" onclick="redirectTo4Wheelers()">4 Wheelers</button>
+    </div>
+
+    <script> 
+        function redirectTo2Wheelers() {
+            window.location.href = "2wheelers.html";
+        }
+
+        function redirectTo3Wheelers() {
+            window.location.href = "3wheelers.html";
+        }
+
+        function redirectTo4Wheelers() {
+            window.location.href = "4service.html";
+        }
+    </script>
+
+</body>
+</html>

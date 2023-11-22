@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Payment</title>
+</head>
+<body>
+    <div class="center-text">
+        <h1>Payment Details</h1>
+        <!-- Payment details will be dynamically added here using JavaScript -->
+    </div>
+
+    <script>
+	let rentalDetails = [];
+
+function increaseQuantity(vehicleNumber) {
+    const quantityInput = document.getElementById(`quantity${vehicleNumber}`);
+    quantityInput.value = parseInt(quantityInput.value) + 1;
+    updateTotalCost(vehicleNumber);
+}
+
+function decreaseQuantity(vehicleNumber) {
+    const quantityInput = document.getElementById(`quantity${vehicleNumber}`);
+    const currentValue = parseInt(quantityInput.value);
+    if (currentValue > 1) {
+        quantityInput.value = currentValue - 1;
+        updateTotalCost(vehicleNumber);
+    }
+}
+
+function updateTotalCost(vehicleNumber) {
+    const quantity = parseInt(document.getElementById(`quantity${vehicleNumber}`).value);
+    const costPerDay = 50; // Change this value based on the actual cost
+    const totalCost = quantity * costPerDay;
+    document.getElementById(`totalCost${vehicleNumber}`).innerText = totalCost;
+}
+
+function rentVehicle(vehicleName, totalAmount) {
+    const quantity = document.getElementById(`quantity${vehicleName}`).value;
+    rentalDetails.push({ vehicleName, totalAmount, quantity });
+    updateRentalDetails();
+}
+
+function updateRentalDetails() {
+    const rentalDetailsDiv = document.getElementById('rentalDetails');
+    rentalDetailsDiv.innerHTML
+</script>
+</body>
+</html>

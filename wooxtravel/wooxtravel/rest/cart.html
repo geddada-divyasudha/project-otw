@@ -1,0 +1,32 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css">
+    <title>Shopping Cart</title>
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+<body>
+
+    <div class="container cart-page">
+        <h1 class="text-center">Shopping Cart</h1>
+
+        <!-- Cart Items -->
+        <div id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+
+        <!-- Total Amount -->
+        <p>Total Amount: $<span id="totalAmount">0</span></p>
+
+        <!-- Checkout Button -->
+        <button class="btn btn-primary" onclick="checkout()">Checkout</button>
+    </div>
+
+    <script src="cart-scripts.js"></script>
+</body>
+</html>

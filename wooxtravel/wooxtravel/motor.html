@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Ordering Website</title>
+    <style>
+        h1{ text-align: center;
+        }
+        body{ background-image: url("https://t3.ftcdn.net/jpg/02/90/72/26/360_F_290722607_fXQ9VHKMPEHSvvPHSMlzJpEcUE5v0GiV.jpg");}
+    </style>
+    <link rel="stylesheet" href="motor.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="motor.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Vehicle Ordering Website</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" id="cart">Cart (0)</a></li>
+        </ul>
+    </nav>
+
+    <section id="food">
+        <div class="item">
+            <img src="https://e0.pxfuel.com/wallpapers/732/163/desktop-wallpaper-file-name-ducati-848-sports-bike.jpg" alt="Food 1">
+            <br>
+            <h3>Yamaha</h3>
+            <br>
+            <p>1000</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="https://etimg.etb2bimg.com/photo/57203645.cms" alt="Food 2">
+            <br>
+            <h3>Pulsar</h3>
+            <br>
+            <p>1500</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+		<div class="item">
+            <img src="https://cdni.autocarindia.com/utils/imageresizer.ashx?n=http://img.haymarketsac.in/autocarpro/IMG/511/12511/email-dsc-8296.jpg&w=750&h=490&q=75&c=1" alt="Food 2">
+        <br>
+            <h3>Fasino</h3>
+            <br>
+            <p>1000</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+		<div class="item">
+            <img src="https://4.imimg.com/data4/LB/AG/GLADMIN-11688693/honda-dio-scooty-500x500.jpg" alt="Food 2">
+            <br>
+            <h3>Honda</h3>
+            <br>
+            <p>1000</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+		<div class="item">
+            <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201511/wagonr_story_647_110815013953.jpg?VersionId=np_Hz4RJ25q1deA4.HbpLdOs5TkDO56B" alt="Food 2">
+            <br>
+            <h3>Maruthi</h3>
+            <br>
+            <p>2500</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+		<div class="item">
+            <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/32940/santro-exterior-right-front-three-quarter-138781.jpeg?q=80" alt="Food 2">
+            <br>
+            <h3>Santro</h3>
+            <br>
+            <p>2000</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="https://ic1.maxabout.us/news/2017/09/hyundai-eon-default-image.png-version201709211313.png" alt="Food 2">
+            <br>
+            <h3>Hyundai</h3>
+            <br>
+            <p>2000</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="https://e0.pxfuel.com/wallpapers/415/581/desktop-wallpaper-mahindra-thar-thar-car.jpg" alt="Food 2">
+            <br>
+            <h3>Thar</h3>
+            <br>
+            <p>4000</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="https://www.iamabiker.com/wp-content/uploads/2017/02/KTM-Duke-250-image-gallery-020.jpg" alt="Food 2">
+            <br>
+            <h3>KTM</h3>
+            <br>
+            <p>2000</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="https://compare.pricesofindia.com/src/wallpapers/vespa/vespa-vxl-150/Vespa-VXL-150-HD-Wallpapers-PricesOfIndia-1.jpg" alt="Food 2">
+            <br>
+            <h3>Vespa</h3>
+            <br>
+            <p>1500</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="https://e1.pxfuel.com/desktop-wallpaper/417/390/desktop-wallpaper-dio-bike-dio-scooter-thumbnail.jpg" alt="Food 2">
+            <br>
+            <h3>Dio</h3>
+            <br>
+            <p>1500</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="https://imgd.aeplcdn.com/1280x720/n/cw/ec/46749/jupiter-right-front-three-quarter.jpeg?q=100" alt="Food 2">
+            <br>
+            <h3>Jupitor</h3>
+            <br>
+            <p>1500</p>
+            <br>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <!-- Add more food items here -->
+    </section>
+
+    <div class="cart-overlay">
+        <div class="cart-modal">
+            <h2>Cart</h2>
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cart items will be dynamically added here -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">GST (5%)</td>
+                        <td id="gst">0</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td id="total">0</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button id="proceed-to-pay">Proceed to Pay</button>
+        </div>
+    </div>
+
+    <div class="payment-overlay">
+        <div class="payment-modal">
+            <h2>Total Amount: $<span id="payment-amount"></span></h2>
+            <button id="qr-scan">QR Code Scan</button>
+            <button id="card-payment">Card Payment</button>
+        </div>
+    </div>
+
+    <div class="bill-overlay">
+        <div class="bill-modal">
+            <h2>Bill</h2>
+            <form id="bill-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <h3>Food Price: ₹<span id="food-price"></span></h3>
+                <h3>GST (5%): $<span id="bill-gst"></span></h3>
+                <h3>Total Amount: ₹<span id="bill-total"></span></h3>
+                <button type="submit">Generate Bill</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2022 Food Ordering Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

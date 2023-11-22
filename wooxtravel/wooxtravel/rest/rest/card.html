@@ -1,0 +1,52 @@
+<!-- card.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="card.css">
+    <title>Card Payment</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Card Payment</h1>
+
+        <div id="cardOptions">
+            <label for="cardType">Select Card Type:</label>
+            <select id="cardType">
+                <option value="debit">Debit Card</option>
+                <option value="credit">Credit Card</option>
+            </select>
+
+            <div id="debitCardForm" class="card-form">
+                <label for="debitName">Name:</label>
+                <input type="text" id="debitName" required>
+                <label for="debitCardNumber">Debit Card Number:</label>
+                <input type="text" id="debitCardNumber" required>
+                <label for="debitExpiryDate">Expiry Date:</label>
+                <input type="text" id="debitExpiryDate" placeholder="MM/YYYY" required>
+                <label for="debitCvv">CVV:</label>
+                <input type="text" id="debitCvv" required>
+                <button id="debitProceedBtn">Proceed to Pay</button>
+            </div>
+
+            <div id="creditCardForm" class="card-form">
+                <label for="creditName">Name:</label>
+                <input type="text" id="creditName" required>
+                <label for="creditCardNumber">Credit Card Number:</label>
+                <input type="text" id="creditCardNumber" required>
+                <label for="creditExpiryDate">Expiry Date:</label>
+                <input type="text" id="creditExpiryDate" placeholder="MM/YYYY" required>
+                <label for="creditCvv">CVV:</label>
+                <input type="text" id="creditCvv" required>
+                <button id="creditProceedBtn">Proceed to Pay</button>
+            </div>
+
+            <button id="generateBillBtn" class="btn" style="display: none;">Generate Bill</button>
+        </div>
+    </div>
+
+    <script src="card.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Payment Checkout Form</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+	<link rel="stylesheet" href="css/payment.css">
+
+	<style>
+		#booking-summary {
+			margin-top: 20px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: #f9f9f9;
+		}
+
+		#booking-summary h3 {
+			color: #333;
+		}
+
+		#booking-summary p {
+			margin: 10px 0;
+		}
+
+	</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="payment">
+    <div class="payment-logo">
+      <p>PG</p>
+    </div>
+
+    <h2>Payment Gateway</h2>
+    <div class="form">
+      <div class="card space icon-relative">
+        <label class="label">Card holder:</label>
+        <input type="text" class="input" placeholder="Name">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="card space icon-relative">
+        <label class="label">Card number:</label>
+        <input type="text" class="input" data-mask="0000 0000 0000 0000" placeholder="Card Number">
+        <i class="far fa-credit-card"></i>
+      </div>
+      <div class="card-grp space">
+        <div class="card-item icon-relative">
+          <label class="label">Expiry date:</label>
+          <input type="text" name="expiry-data" class="input" data-mask="00 / 00"  placeholder="MM / YY">
+          <i class="far fa-calendar-alt"></i>
+        </div>
+        <div class="card-item icon-relative">
+          <label class="label">CVV :</label>
+          <input type="text" class="input" data-mask="000" placeholder="000">
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+
+      <div class="btn">
+        <a href="#" class="btnn" onclick="processPayment()">Pay</a>
+      </div>
+
+      <div id="booking-summary" style="display:none;">
+        <!-- Booking summary will be displayed here -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script>
+  function processPayment() {
+    // Prompt for customer details
+    var customerName = prompt("Enter your name:");
+    var phoneNumber = prompt("Enter your phone number:");
+    var email = prompt("Enter your email:");
+    var flightDate = prompt("Enter your flight date (MM/DD/YYYY):");
+
+    // Display bill and success message
+    var billMessage = `
+      <h3>Flight Booking Summary</h3>
+      <p><strong>Name:</strong> ${customerName}</p>
+      <p><strong>Phone Number:</strong> ${phoneNumber}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Flight Date:</strong> ${flightDate}</p>
+  
+      <p>Your flight is successfully booked. Have a safe journey!</p>
+    `;
+
+    // Display the booking summary on the page
+    document.getElementById('booking-summary').innerHTML = billMessage;
+    document.getElementById('booking-summary').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

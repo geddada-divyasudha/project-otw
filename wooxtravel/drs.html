@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRS Destinations</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0; /* Background color */
+            font-family: 'Arial', sans-serif;
+						background-image:url('https://livepkassets.pechakucha.com/slides/38cb68c3-c298-4809-b10c-d5e99639b957/slide_1_1646638101350.gif');
+
+        }
+
+        #destination-container {
+            text-align: center;
+        }
+
+        #start-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db; /* Button color */
+            color: #fff; /* Text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #start-button:hover {
+            background-color: #2980b9; /* Hover color */
+        }
+
+        #video-container {
+            display: none;
+        }
+
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #continue-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db; /* Button color */
+            color: #fff; /* Text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #continue-button:hover {
+            background-color: #2980b9; /* Hover color */
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="destination-container">
+    <button id="start-button" onclick="startVideo()">Start</button>
+    <div id="video-container">
+        <video id="video" autoplay controls muted onended="showContinueButton()">
+            <source src="C:\xampp\htdocs\wooxtravel\assets\images\drrss.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="continue-button" onclick="navigateToAnotherPage()">Press to Continue</button>
+    </div>
+</div>
+
+<script>
+    function startVideo() {
+        var startButton = document.getElementById("start-button");
+        var videoContainer = document.getElementById("video-container");
+
+        startButton.style.display = "none";
+        videoContainer.style.display = "block";
+
+        var video = document.getElementById("video");
+        video.muted = false;
+        video.play();
+    }
+
+    function showContinueButton() {
+        document.getElementById("continue-button").style.display = "block";
+    }
+
+    function navigateToAnotherPage() {
+        // Change the URL to the desired destination
+             window.location.href = 'file:///C:/xampp/htdocs/wooxtravel/main.html';
+
+    }
+</script>
+
+</body>
+</html>
